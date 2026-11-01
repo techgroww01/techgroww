@@ -1,23 +1,53 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
   <defs>
-    <linearGradient id="tgFavGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#2563EB" />
-      <stop offset="50%" stop-color="#4F46E5" />
-      <stop offset="100%" stop-color="#7C3AED" />
+    <!-- Background Radial Gradient -->
+    <radialGradient id="favBgGlow" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#0a1d42"/>
+      <stop offset="65%" stop-color="#060b18"/>
+      <stop offset="100%" stop-color="#040711"/>
+    </radialGradient>
+
+    <!-- Upper triangle: Left facet -->
+    <linearGradient id="favFacetLeft" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#60c5ff"/>
+      <stop offset="45%" stop-color="#0091ff"/>
+      <stop offset="100%" stop-color="#0062d6"/>
     </linearGradient>
-    <linearGradient id="tgNodeGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#38BDF8" />
-      <stop offset="100%" stop-color="#2563EB" />
+
+    <!-- Upper triangle: Right facet -->
+    <linearGradient id="favFacetRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#006edc"/>
+      <stop offset="60%" stop-color="#003e9e"/>
+      <stop offset="100%" stop-color="#072054"/>
+    </linearGradient>
+
+    <!-- Lower chevron: Left wing -->
+    <linearGradient id="favChevLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d8ff"/>
+      <stop offset="60%" stop-color="#0088ff"/>
+      <stop offset="100%" stop-color="#0055cb"/>
+    </linearGradient>
+
+    <!-- Lower chevron: Right wing -->
+    <linearGradient id="favChevRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#005ec4"/>
+      <stop offset="70%" stop-color="#002b80"/>
+      <stop offset="100%" stop-color="#06163b"/>
     </linearGradient>
   </defs>
-  
-  <rect width="48" height="48" rx="10" fill="#0B132B"/>
-  
-  <g transform="translate(2, 2)">
-    <path d="M22 4L38 13.5V30.5L22 40L6 30.5V13.5L22 4Z" fill="url(#tgFavGrad)" opacity="0.25"/>
-    <path d="M22 4L38 13.5V30.5L22 40L6 30.5V13.5L22 4Z" stroke="url(#tgFavGrad)" stroke-width="2.5" stroke-linejoin="round"/>
-    <path d="M14 26L22 16L30 26" stroke="url(#tgNodeGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M22 16V31" stroke="url(#tgNodeGrad)" stroke-width="3" stroke-linecap="round"/>
-    <circle cx="22" cy="16" r="3.5" fill="#FFFFFF"/>
+
+  <!-- Dark Rounded Container -->
+  <rect width="64" height="64" rx="14" fill="url(#favBgGlow)"/>
+
+  <!-- Centered Official 3D Delta Mark -->
+  <g transform="translate(14, 11) scale(0.9)">
+    <!-- 1. Upper Triangle -->
+    <path d="M 20 2 L 2 32 L 20 26 Z" fill="url(#favFacetLeft)"/>
+    <path d="M 20 2 L 20 26 L 38 32 Z" fill="url(#favFacetRight)"/>
+    <line x1="20" y1="2" x2="20" y2="26" stroke="#ffffff" stroke-width="0.8" stroke-opacity="0.5"/>
+
+    <!-- 2. Lower Chevron -->
+    <path d="M 20 30 L 0 41 L 3 43 L 20 35 Z" fill="url(#favChevLeft)"/>
+    <path d="M 20 30 L 20 35 L 37 43 L 40 41 Z" fill="url(#favChevRight)"/>
   </g>
 </svg>

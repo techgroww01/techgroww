@@ -1,26 +1,73 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 54" width="240" height="54" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 56" width="250" height="56" fill="none">
   <defs>
-    <linearGradient id="tgLogoWhiteGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#60A5FA" />
-      <stop offset="50%" stop-color="#818CF8" />
-      <stop offset="100%" stop-color="#A78BFA" />
+    <!-- Upper triangle: Left facet -->
+    <linearGradient id="whiteFacetLeft" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#60c5ff"/>
+      <stop offset="45%" stop-color="#0091ff"/>
+      <stop offset="100%" stop-color="#0062d6"/>
     </linearGradient>
-    <linearGradient id="tgNodeWhiteGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#38BDF8" />
-      <stop offset="100%" stop-color="#60A5FA" />
+
+    <!-- Upper triangle: Right facet -->
+    <linearGradient id="whiteFacetRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#006edc"/>
+      <stop offset="60%" stop-color="#003e9e"/>
+      <stop offset="100%" stop-color="#072054"/>
+    </linearGradient>
+
+    <!-- Lower chevron: Left wing -->
+    <linearGradient id="whiteChevLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d8ff"/>
+      <stop offset="60%" stop-color="#0088ff"/>
+      <stop offset="100%" stop-color="#0055cb"/>
+    </linearGradient>
+
+    <!-- Lower chevron: Right wing -->
+    <linearGradient id="whiteChevRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#005ec4"/>
+      <stop offset="70%" stop-color="#002b80"/>
+      <stop offset="100%" stop-color="#06163b"/>
+    </linearGradient>
+
+    <linearGradient id="whiteGrowwGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
     </linearGradient>
   </defs>
-  
-  <g transform="translate(6, 5)">
-    <path d="M22 2L40 12.5V33.5L22 44L4 33.5V12.5L22 2Z" fill="url(#tgLogoWhiteGrad)" opacity="0.18"/>
-    <path d="M22 2L40 12.5V33.5L22 44L4 33.5V12.5L22 2Z" stroke="url(#tgLogoWhiteGrad)" stroke-width="2.5" stroke-linejoin="round"/>
-    <path d="M14 28L22 17L30 28" stroke="url(#tgNodeWhiteGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M22 17V33" stroke="url(#tgNodeWhiteGrad)" stroke-width="3" stroke-linecap="round"/>
-    <circle cx="22" cy="17" r="4" fill="#0B132B" stroke="#60A5FA" stroke-width="2.5"/>
-    <circle cx="14" cy="28" r="2.5" fill="#38BDF8"/>
-    <circle cx="30" cy="28" r="2.5" fill="#A78BFA"/>
+
+  <!-- Official 3D Arrowhead Emblem (Scaled & Centered) -->
+  <g transform="translate(4, 5) scale(0.9)">
+    <!-- 1. Upper Triangle -->
+    <path d="M 26 2 L 6 36 L 26 29 Z" fill="url(#whiteFacetLeft)"/>
+    <path d="M 26 2 L 26 29 L 46 36 Z" fill="url(#whiteFacetRight)"/>
+    <line x1="26" y1="2" x2="26" y2="29" stroke="#ffffff" stroke-width="0.8" stroke-opacity="0.6"/>
+
+    <!-- 2. Lower Chevron -->
+    <path d="M 26 33 L 2 45 L 6 47 L 26 38 Z" fill="url(#whiteChevLeft)"/>
+    <path d="M 26 33 L 26 38 L 46 47 L 50 45 Z" fill="url(#whiteChevRight)"/>
   </g>
 
-  <text x="62" y="34" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" font-size="26" font-weight="800" letter-spacing="-0.5" fill="#FFFFFF">Tech<tspan fill="url(#tgLogoWhiteGrad)">groww</tspan></text>
-  <circle cx="218" cy="30" r="3.5" fill="#38BDF8"/>
+  <!-- Brand Typography Lockup for Dark Surfaces -->
+  <!-- "TECH" in Crisp Pure White -->
+  <text x="64" y="32" 
+        font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" 
+        font-size="24" 
+        font-weight="800" 
+        letter-spacing="0.5" 
+        fill="#FFFFFF">TECH</text>
+
+  <!-- "GROWW" in Luminous Gradient Cyan/Blue -->
+  <text x="135" y="32" 
+        font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" 
+        font-size="24" 
+        font-weight="800" 
+        letter-spacing="0.5" 
+        fill="url(#whiteGrowwGrad)">GROWW</text>
+
+  <!-- Subtitle Tagline Under Text -->
+  <text x="65" y="44" 
+        font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" 
+        font-size="8.5" 
+        font-weight="700" 
+        letter-spacing="3.8" 
+        fill="#94A3B8">IT SOLUTIONS</text>
 </svg>

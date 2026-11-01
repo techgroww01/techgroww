@@ -1,32 +1,73 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 54" width="240" height="54" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 56" width="250" height="56" fill="none">
   <defs>
-    <linearGradient id="tgLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#2563EB" />
-      <stop offset="50%" stop-color="#4F46E5" />
-      <stop offset="100%" stop-color="#7C3AED" />
+    <!-- Upper triangle: Left facet -->
+    <linearGradient id="headerFacetLeft" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="45%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
     </linearGradient>
-    <linearGradient id="tgNodeGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#38BDF8" />
-      <stop offset="100%" stop-color="#2563EB" />
+
+    <!-- Upper triangle: Right facet -->
+    <linearGradient id="headerFacetRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="60%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#0f2b6e"/>
+    </linearGradient>
+
+    <!-- Lower chevron: Left wing -->
+    <linearGradient id="headerChevLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d8ff"/>
+      <stop offset="60%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+
+    <!-- Lower chevron: Right wing -->
+    <linearGradient id="headerChevRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1d4ed8"/>
+      <stop offset="70%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#0a1942"/>
+    </linearGradient>
+
+    <linearGradient id="growwGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#2563eb"/>
     </linearGradient>
   </defs>
-  
-  <!-- Modern Geometric Icon: Tech Growth Hexagon with Rising Node and Digital Arrow -->
-  <g transform="translate(6, 5)">
-    <!-- Ambient glow / shadow -->
-    <path d="M22 2L40 12.5V33.5L22 44L4 33.5V12.5L22 2Z" fill="url(#tgLogoGrad)" opacity="0.12"/>
-    <!-- Outer Facets -->
-    <path d="M22 2L40 12.5V33.5L22 44L4 33.5V12.5L22 2Z" stroke="url(#tgLogoGrad)" stroke-width="2.5" stroke-linejoin="round"/>
-    <!-- Upward Growth Arrow Path -->
-    <path d="M14 28L22 17L30 28" stroke="url(#tgNodeGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M22 17V33" stroke="url(#tgNodeGrad)" stroke-width="3" stroke-linecap="round"/>
-    <!-- Tech Node Core -->
-    <circle cx="22" cy="17" r="4" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.5"/>
-    <circle cx="14" cy="28" r="2.5" fill="#38BDF8"/>
-    <circle cx="30" cy="28" r="2.5" fill="#7C3AED"/>
+
+  <!-- Official 3D Arrowhead Emblem (Scaled & Centered) -->
+  <g transform="translate(4, 5) scale(0.9)">
+    <!-- 1. Upper Triangle -->
+    <path d="M 26 2 L 6 36 L 26 29 Z" fill="url(#headerFacetLeft)"/>
+    <path d="M 26 2 L 26 29 L 46 36 Z" fill="url(#headerFacetRight)"/>
+    <line x1="26" y1="2" x2="26" y2="29" stroke="#ffffff" stroke-width="0.8" stroke-opacity="0.5"/>
+
+    <!-- 2. Lower Chevron -->
+    <path d="M 26 33 L 2 45 L 6 47 L 26 38 Z" fill="url(#headerChevLeft)"/>
+    <path d="M 26 33 L 26 38 L 46 47 L 50 45 Z" fill="url(#headerChevRight)"/>
   </g>
 
-  <!-- Typography: Techgroww -->
-  <text x="62" y="34" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" font-size="26" font-weight="800" letter-spacing="-0.5" fill="#0B132B">Tech<tspan fill="url(#tgLogoGrad)">groww</tspan></text>
-  <circle cx="218" cy="30" r="3.5" fill="#2563EB"/>
+  <!-- Brand Typography Lockup -->
+  <!-- "TECH" in Bold Primary Dark Navy -->
+  <text x="64" y="32" 
+        font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" 
+        font-size="24" 
+        font-weight="800" 
+        letter-spacing="0.5" 
+        fill="#0B132B">TECH</text>
+
+  <!-- "GROWW" in Bold Accent Blue -->
+  <text x="135" y="32" 
+        font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" 
+        font-size="24" 
+        font-weight="800" 
+        letter-spacing="0.5" 
+        fill="url(#growwGrad)">GROWW</text>
+
+  <!-- Subtitle Tagline Under Text -->
+  <text x="65" y="44" 
+        font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif" 
+        font-size="8.5" 
+        font-weight="700" 
+        letter-spacing="3.8" 
+        fill="#64748B">IT SOLUTIONS</text>
 </svg>

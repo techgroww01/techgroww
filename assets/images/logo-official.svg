@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" fill="none">
+  <defs>
+    <!-- Background radial glow -->
+    <radialGradient id="bgGlow" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#0a1d42" stop-opacity="0.8"/>
+      <stop offset="60%" stop-color="#060b18" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#040711" stop-opacity="1"/>
+    </radialGradient>
+
+    <!-- Upper triangle: Left facet (light highlight) -->
+    <linearGradient id="facetLeftGrad" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#60c5ff"/>
+      <stop offset="45%" stop-color="#0091ff"/>
+      <stop offset="100%" stop-color="#0062d6"/>
+    </linearGradient>
+
+    <!-- Upper triangle: Right facet (shadow) -->
+    <linearGradient id="facetRightGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#006edc"/>
+      <stop offset="60%" stop-color="#003e9e"/>
+      <stop offset="100%" stop-color="#072054"/>
+    </linearGradient>
+
+    <!-- Lower chevron: Left wing -->
+    <linearGradient id="chevLeftGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d8ff"/>
+      <stop offset="60%" stop-color="#0088ff"/>
+      <stop offset="100%" stop-color="#0055cb"/>
+    </linearGradient>
+
+    <!-- Lower chevron: Right wing -->
+    <linearGradient id="chevRightGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#005ec4"/>
+      <stop offset="70%" stop-color="#002b80"/>
+      <stop offset="100%" stop-color="#06163b"/>
+    </linearGradient>
+
+    <!-- Subtle drop shadow on chevron -->
+    <filter id="shadowGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0077ff" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" rx="40" fill="url(#bgGlow)"/>
+
+  <!-- Official 3D Arrowhead / Delta Emblem -->
+  <g transform="translate(0, -6)" filter="url(#shadowGlow)">
+    <!-- 1. Upper Triangle / Arrowhead -->
+    <!-- Left Facet: Apex (200, 78) -> Left Base (142, 190) -> Inner Notch (200, 168) -->
+    <path d="M 200 78 L 142 190 L 200 168 Z" fill="url(#facetLeftGrad)"/>
+    
+    <!-- Right Facet: Apex (200, 78) -> Inner Notch (200, 168) -> Right Base (258 190) -->
+    <path d="M 200 78 L 200 168 L 258 190 Z" fill="url(#facetRightGrad)"/>
+
+    <!-- Specular highlight on center ridge -->
+    <line x1="200" y1="78" x2="200" y2="168" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.4" stroke-linecap="round"/>
+
+    <!-- 2. Lower Chevron / Wing Base -->
+    <!-- Left Wing: Top Apex (200, 180) -> Outer Tip (128, 218) -> Bottom Notch Tip (142, 222) -> Inner Base (200, 196) -->
+    <path d="M 200 180 L 128 218 L 142 222 L 200 196 Z" fill="url(#chevLeftGrad)"/>
+
+    <!-- Right Wing: Top Apex (200, 180) -> Inner Base (200, 196) -> Bottom Notch Tip (258, 222) -> Outer Tip (272, 218) -->
+    <path d="M 200 180 L 200 196 L 258 222 L 272 218 Z" fill="url(#chevRightGrad)"/>
+  </g>
+
+  <!-- Typography: TECH -->
+  <text x="200" y="278" 
+        font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+        font-size="44" 
+        font-weight="800" 
+        letter-spacing="2" 
+        fill="#FFFFFF" 
+        text-anchor="middle">TECH</text>
+
+  <!-- Typography: GROWW -->
+  <text x="200" y="315" 
+        font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+        font-size="22" 
+        font-weight="600" 
+        letter-spacing="9" 
+        fill="#94A3B8" 
+        text-anchor="middle">GROWW</text>
+</svg>
