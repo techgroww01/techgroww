@@ -33,3 +33,4 @@ function getAdminUser(): array {
         'email'    => $_SESSION['admin_email'] ?? 'admin@techgroww.co.in',
     ];
 }
+

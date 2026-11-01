@@ -309,3 +309,4 @@ $flashMessages = getFlashMessages();
 
     <!-- Main Content Injection Anchor -->
     <main id="main-content">
+

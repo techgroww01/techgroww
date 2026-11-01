@@ -119,14 +119,29 @@ function isActiveNav(string $page): bool {
 }
 
 /**
- * Send an email notification using PHP mail()
+ * Send an email notification using MailService (PHPMailer SMTP) with fallback
  */
 function sendNotificationEmail(string $subject, string $htmlBody, ?string $replyTo = null): bool {
     if (!MAIL_NOTIFICATIONS_ENABLED) {
         return false;
     }
 
-    $to = MAIL_NOTIFICATION_RECIPIENT;
+    require_once __DIR__ . '/MailService.php';
+
+    if (MailService::isConfigured()) {
+        $result = MailService::sendHtmlEmail(
+            SALES_NOTIFICATION_EMAIL,
+            'Techgroww Sales',
+            $subject,
+            $htmlBody,
+            $replyTo,
+            $replyTo
+        );
+        return $result['success'];
+    }
+
+    // Fallback to PHP native mail() if SMTP credentials are not yet configured
+    $to = SALES_NOTIFICATION_EMAIL;
     $headers = [];
     $headers[] = 'MIME-Version: 1.0';
     $headers[] = 'Content-type: text/html; charset=UTF-8';
@@ -136,7 +151,6 @@ function sendNotificationEmail(string $subject, string $htmlBody, ?string $reply
     }
     $headers[] = 'X-Mailer: PHP/' . phpversion();
 
-    // Use error suppression so server misconfiguration won't crash user requests
     return @mail($to, $subject, $htmlBody, implode("\r\n", $headers));
 }
 
@@ -214,3 +228,4 @@ function renderBreadcrumbs(array $items): string {
 
     return $html;
 }
+

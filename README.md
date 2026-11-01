@@ -299,3 +299,4 @@ Authorized administrators can manage client leads, update workflow statuses, and
 
 &copy; 2026 **Techgroww IT Solutions**. All rights reserved.
 Developed for production deployment on Hostinger Web Hosting.
+

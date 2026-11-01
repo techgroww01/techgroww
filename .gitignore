@@ -40,3 +40,6 @@ debug.log
 *.temp
 *.zip
 *.tar.gz
+scratch/
+
+

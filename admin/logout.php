@@ -17,3 +17,4 @@ unset(
 setFlashMessage('success', 'You have been signed out successfully.');
 header('Location: ' . url('/admin/login.php'));
 exit;
+

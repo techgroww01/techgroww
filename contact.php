@@ -4,6 +4,8 @@
  * Domain: https://techgroww.co.in/contact
  */
 
+require_once __DIR__ . '/includes/functions.php';
+
 $pageTitle = 'Contact Us | Let\'s Discuss Your Project | Techgroww IT Solutions';
 $pageDescription = 'Contact Techgroww technology consulting in India. Schedule a free architectural consultation, request a project quote, or discuss custom software development, business automation, and AI solutions.';
 $canonicalUrl = 'https://techgroww.co.in/contact';
@@ -251,3 +253,4 @@ require_once __DIR__ . '/includes/header.php';
 <?php
 require_once __DIR__ . '/includes/footer.php';
 ?>
+

@@ -74,3 +74,4 @@ if ($pdo) {
 }
 
 respondSubscribe(true, 'Thank you for subscribing! You will receive our latest technology insights and architecture updates.');
+

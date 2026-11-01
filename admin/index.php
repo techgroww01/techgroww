@@ -11,3 +11,4 @@ if (isAdminLoggedIn()) {
     header('Location: ' . url('/admin/login.php'));
 }
 exit;
+

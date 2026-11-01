@@ -1,0 +1,20 @@
+{
+    "name": "techgroww/website",
+    "description": "Techgroww Corporate IT Services Website & Automation Platform",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.0",
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "PHPMailer\\PHPMailer\\": "vendor/phpmailer/phpmailer/src/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "allow-plugins": {}
+    }
+}

@@ -65,24 +65,44 @@ define('SOCIAL_TWITTER', 'https://x.com/techgroww');
 define('SOCIAL_GITHUB', 'https://github.com/techgroww01');
 define('SOCIAL_INSTAGRAM', 'https://www.instagram.com/techgroww');
 
-// Database Credentials Default Configuration
+// Database & SMTP Credentials Default Configuration
 // Overridable via environment variables or config/config.local.php
 $dbHost = getenv('DB_HOST') ?: 'localhost';
-$dbName = getenv('DB_NAME') ?: 'u_techgroww_db';
-$dbUser = getenv('DB_USER') ?: 'u_techgroww_user';
+$dbName = getenv('DB_NAME') ?: 'u215281564_techgrowwdb';
+$dbUser = getenv('DB_USER') ?: 'u215281564_techgroww_user';
 $dbPass = getenv('DB_PASS') ?: '';
 $dbPort = getenv('DB_PORT') ?: '3306';
+
+// SMTP & Email Notification Settings (Google Workspace / PHPMailer)
+$smtpHost               = getenv('SMTP_HOST') ?: 'smtp.gmail.com';
+$smtpPort               = (int) (getenv('SMTP_PORT') ?: 587);
+$smtpEncryption         = getenv('SMTP_ENCRYPTION') ?: 'tls'; // 'tls' for STARTTLS (port 587)
+$smtpUser               = getenv('SMTP_USER') ?: 'sales@techgroww.co.in';
+$smtpPass               = getenv('SMTP_PASS') ?: (getenv('SMTP_PASSWORD') ?: '');
+$mailFromName           = getenv('MAIL_FROM_NAME') ?: 'Techgroww Website';
+$mailFromAddress        = getenv('MAIL_FROM_ADDRESS') ?: 'sales@techgroww.co.in';
+$salesNotificationEmail = getenv('SALES_NOTIFICATION_EMAIL') ?: 'sales@techgroww.co.in';
+$cronSecret             = getenv('CRON_SECRET_TOKEN') ?: 'techgroww_cron_e891b2c4d9';
 
 // Check for local uncommitted config file (Hostinger production or local dev)
 $localConfigFile = __DIR__ . '/config.local.php';
 if (file_exists($localConfigFile)) {
     $localConfig = require $localConfigFile;
     if (is_array($localConfig)) {
-        $dbHost = $localConfig['DB_HOST'] ?? $dbHost;
-        $dbName = $localConfig['DB_NAME'] ?? $dbName;
-        $dbUser = $localConfig['DB_USER'] ?? $dbUser;
-        $dbPass = $localConfig['DB_PASS'] ?? $dbPass;
-        $dbPort = $localConfig['DB_PORT'] ?? $dbPort;
+        $dbHost                 = $localConfig['DB_HOST'] ?? $dbHost;
+        $dbName                 = $localConfig['DB_NAME'] ?? $dbName;
+        $dbUser                 = $localConfig['DB_USER'] ?? $dbUser;
+        $dbPass                 = $localConfig['DB_PASS'] ?? $dbPass;
+        $dbPort                 = $localConfig['DB_PORT'] ?? $dbPort;
+        $smtpHost               = $localConfig['SMTP_HOST'] ?? $smtpHost;
+        $smtpPort               = isset($localConfig['SMTP_PORT']) ? (int) $localConfig['SMTP_PORT'] : $smtpPort;
+        $smtpEncryption         = $localConfig['SMTP_ENCRYPTION'] ?? $smtpEncryption;
+        $smtpUser               = $localConfig['SMTP_USER'] ?? $smtpUser;
+        $smtpPass               = $localConfig['SMTP_PASS'] ?? ($localConfig['SMTP_PASSWORD'] ?? $smtpPass);
+        $mailFromName           = $localConfig['MAIL_FROM_NAME'] ?? $mailFromName;
+        $mailFromAddress        = $localConfig['MAIL_FROM_ADDRESS'] ?? $mailFromAddress;
+        $salesNotificationEmail = $localConfig['SALES_NOTIFICATION_EMAIL'] ?? $salesNotificationEmail;
+        $cronSecret             = $localConfig['CRON_SECRET_TOKEN'] ?? $cronSecret;
     }
 }
 
@@ -92,11 +112,20 @@ define('DB_USER', $dbUser);
 define('DB_PASS', $dbPass);
 define('DB_PORT', $dbPort);
 
-// Email notification settings (Optional SMTP for Hostinger)
+// Authenticated SMTP Configuration (PHPMailer)
+define('SMTP_HOST', $smtpHost);
+define('SMTP_PORT', $smtpPort);
+define('SMTP_ENCRYPTION', $smtpEncryption);
+define('SMTP_USER', $smtpUser);
+define('SMTP_PASS', $smtpPass);
+define('MAIL_FROM_NAME', $mailFromName);
+define('MAIL_FROM_ADDRESS', $mailFromAddress);
+define('SALES_NOTIFICATION_EMAIL', $salesNotificationEmail);
+define('CRON_SECRET_TOKEN', $cronSecret);
+
+// Legacy fallback defines for backwards compatibility
 define('MAIL_NOTIFICATIONS_ENABLED', true);
-define('MAIL_NOTIFICATION_RECIPIENT', CONTACT_EMAIL);
-define('MAIL_FROM_ADDRESS', 'noreply@techgroww.co.in');
-define('MAIL_FROM_NAME', 'Techgroww System Notification');
+define('MAIL_NOTIFICATION_RECIPIENT', $salesNotificationEmail);
 
 // CSRF Token Management
 if (empty($_SESSION['csrf_token'])) {
@@ -144,3 +173,4 @@ function asset(string $path): string {
 function e(?string $string): string {
     return htmlspecialchars($string ?? '', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
+

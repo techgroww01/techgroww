@@ -2,24 +2,32 @@
 /**
  * Techgroww - Contact Form Submission Endpoint
  * Supports AJAX JSON responses and standard form POST redirects
+ * 
+ * Reliability Guarantees:
+ * 1. Strict validation, spam protection, and rate limiting
+ * 2. Atomic database transaction for contact enquiry and email outbox
+ * 3. Never sends emails or returns false success if database insertion fails
+ * 4. Durable email outbox queueing with immediate delivery attempt and automatic retry
+ * 5. Returns new enquiry ID to prospect and admin
  */
 
 require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../includes/MailService.php';
 
 $isAjax = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')
     || (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'application/json') !== false);
 
-function respond(bool $success, string $message, array $errors = [], int $statusCode = 200) {
+function respond(bool $success, string $message, array $errors = [], int $statusCode = 200, array $extra = []) {
     global $isAjax;
     http_response_code($statusCode);
 
     if ($isAjax) {
         header('Content-Type: application/json; charset=utf-8');
-        echo json_encode([
+        echo json_encode(array_merge([
             'success' => $success,
             'message' => $message,
             'errors'  => $errors,
-        ]);
+        ], $extra));
         exit;
     } else {
         // Fallback for non-JS standard form submissions
@@ -101,85 +109,120 @@ if (!empty($errors)) {
     respond(false, 'Please correct the highlighted errors in the form.', $errors, 422);
 }
 
-// 4. Save to Database
+// 4. Save to Database with Transaction Reliability
 $pdo = db();
-$dbSuccess = false;
-
-if ($pdo) {
-    try {
-        $stmt = $pdo->prepare("
-            INSERT INTO `contact_enquiries` 
-            (`name`, `email`, `phone`, `company`, `service`, `budget`, `message`, `ip_address`, `user_agent`, `status`, `created_at`) 
-            VALUES 
-            (:name, :email, :phone, :company, :service, :budget, :message, :ip, :ua, 'new', NOW())
-        ");
-
-        $stmt->execute([
-            ':name'    => $name,
-            ':email'   => $email,
-            ':phone'   => $phone ?: null,
-            ':company' => $company ?: null,
-            ':service' => $service,
-            ':budget'  => $budget ?: 'Not Specified',
-            ':message' => $message,
-            ':ip'      => getClientIp(),
-            ':ua'      => mb_substr($_SERVER['HTTP_USER_AGENT'] ?? '', 0, 255),
-        ]);
-
-        $dbSuccess = true;
-    } catch (PDOException $e) {
-        error_log('[Techgroww Contact Form DB Error] ' . $e->getMessage());
-        // Do not expose database error to client
-    }
-} else {
+if (!$pdo) {
     error_log('[Techgroww Contact Form] Database connection unavailable during contact submission.');
+    respond(
+        false,
+        'Our database service is temporarily unavailable. Please email us directly at ' . SALES_NOTIFICATION_EMAIL . ' or call ' . CONTACT_PHONE . '.',
+        ['database' => 'Database connection failed'],
+        503
+    );
 }
 
-// 5. Send Email Notification
-$emailSubject = "New Project Enquiry from " . $name . " [" . $service . "]";
-$emailContent = "
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='utf-8'>
-    <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f8fafc; color: #1e293b; padding: 20px; }
-        .card { background: #ffffff; border-radius: 8px; border: 1px solid #e2e8f0; max-width: 600px; margin: 0 auto; overflow: hidden; }
-        .header { background: #0b132b; color: #ffffff; padding: 24px; text-align: center; }
-        .header h2 { margin: 0; font-size: 20px; font-weight: 600; }
-        .body { padding: 24px; }
-        .field { margin-bottom: 16px; border-bottom: 1px solid #f1f5f9; padding-bottom: 12px; }
-        .field strong { color: #0f172a; display: block; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
-        .field span { font-size: 15px; color: #334155; }
-        .footer { background: #f8fafc; padding: 16px 24px; font-size: 12px; color: #64748b; text-align: center; }
-    </style>
-</head>
-<body>
-    <div class='card'>
-        <div class='header'>
-            <h2>New Client Project Enquiry</h2>
-            <p style='margin: 4px 0 0; font-size: 14px; opacity: 0.8;'>Techgroww Website Lead Capture</p>
-        </div>
-        <div class='body'>
-            <div class='field'><strong>Client Name:</strong> <span>" . e($name) . "</span></div>
-            <div class='field'><strong>Email:</strong> <span><a href='mailto:" . e($email) . "'>" . e($email) . "</a></span></div>
-            <div class='field'><strong>Phone:</strong> <span>" . e($phone ?: 'Not provided') . "</span></div>
-            <div class='field'><strong>Company:</strong> <span>" . e($company ?: 'Not provided') . "</span></div>
-            <div class='field'><strong>Selected Service:</strong> <span>" . e($service) . "</span></div>
-            <div class='field'><strong>Estimated Budget:</strong> <span>" . e($budget ?: 'Not specified') . "</span></div>
-            <div class='field'><strong>Project Description:</strong><br><p style='white-space: pre-wrap; font-size: 14px; color: #1e293b; line-height: 1.6;'>" . nl2br(e($message)) . "</p></div>
-        </div>
-        <div class='footer'>
-            Sent from " . e(SITE_URL) . " at " . date('Y-m-d H:i:s T') . " (IP: " . e(getClientIp()) . ")
-        </div>
-    </div>
-</body>
-</html>
-";
+$enquiryId = null;
+$salesNotifId = null;
+$custAckId = null;
 
-@sendNotificationEmail($emailSubject, $emailContent, $email);
+try {
+    $pdo->beginTransaction();
 
-// Regenerate CSRF token after successful submission
+    $stmt = $pdo->prepare("
+        INSERT INTO `contact_enquiries` 
+        (`name`, `email`, `phone`, `company`, `service`, `budget`, `message`, `ip_address`, `user_agent`, `status`, `created_at`) 
+        VALUES 
+        (:name, :email, :phone, :company, :service, :budget, :message, :ip, :ua, 'new', NOW())
+    ");
+
+    $stmt->execute([
+        ':name'    => $name,
+        ':email'   => $email,
+        ':phone'   => $phone ?: null,
+        ':company' => $company ?: null,
+        ':service' => $service,
+        ':budget'  => $budget ?: 'Not Specified',
+        ':message' => $message,
+        ':ip'      => getClientIp(),
+        ':ua'      => mb_substr($_SERVER['HTTP_USER_AGENT'] ?? '', 0, 255),
+    ]);
+
+    $enquiryId = (int) $pdo->lastInsertId();
+    if ($enquiryId <= 0) {
+        throw new \Exception('Failed to obtain auto-increment enquiry ID from database.');
+    }
+
+    $enquiryData = [
+        'id'         => $enquiryId,
+        'name'       => $name,
+        'email'      => $email,
+        'phone'      => $phone,
+        'company'    => $company,
+        'service'    => $service,
+        'budget'     => $budget,
+        'message'    => $message,
+        'created_at' => date('Y-m-d H:i:s'),
+    ];
+
+    // Build Email Templates
+    $salesSubject  = "New Techgroww Website Enquiry – " . $name;
+    $salesHtml     = MailService::buildSalesNotificationHtml($enquiryId, $enquiryData);
+
+    $custSubject   = "Thank you for contacting Techgroww";
+    $custHtml      = MailService::buildCustomerAcknowledgementHtml($enquiryId, $enquiryData);
+
+    // Queue in Outbox table (Durable record)
+    $salesNotifId = MailService::queueNotification(
+        $enquiryId,
+        SALES_NOTIFICATION_EMAIL,
+        'Techgroww Sales Team',
+        'sales_notification',
+        $salesSubject,
+        $salesHtml,
+        $email // Customer email set as Reply-To
+    );
+
+    $custAckId = MailService::queueNotification(
+        $enquiryId,
+        $email,
+        $name,
+        'customer_acknowledgement',
+        $custSubject,
+        $custHtml,
+        SALES_NOTIFICATION_EMAIL
+    );
+
+    $pdo->commit();
+} catch (\Throwable $e) {
+    if ($pdo && $pdo->inTransaction()) {
+        $pdo->rollBack();
+    }
+    error_log('[Techgroww Contact Form DB Error] ' . $e->getMessage());
+    respond(
+        false,
+        'We encountered an error saving your enquiry. Please try submitting again or contact us directly at ' . SALES_NOTIFICATION_EMAIL . '.',
+        ['database' => 'Failed to save enquiry'],
+        500
+    );
+}
+
+// 5. Attempt Immediate Email Delivery via MailService
+// If delivery fails, it remains safely in the outbox for the automatic cron retry mechanism
+if ($salesNotifId) {
+    MailService::deliverQueuedEmail($salesNotifId);
+}
+
+if ($custAckId) {
+    MailService::deliverQueuedEmail($custAckId);
+}
+
+// 6. Regenerate CSRF token after successful submission to prevent duplicate submissions
 $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 
-respond(true, 'Thank you! Your project enquiry has been submitted successfully. A Techgroww technology consultant will review your requirements and reach out within 24 business hours.');
+respond(
+    true,
+    'Thank you! Your project enquiry (Ref #' . $enquiryId . ') has been submitted successfully. A Techgroww technology consultant will review your requirements and reach out within 24 business hours.',
+    [],
+    200,
+    ['enquiry_id' => $enquiryId]
+);
