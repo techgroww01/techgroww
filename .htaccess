@@ -1,0 +1,135 @@
+# ==============================================================================
+# Techgroww Production .htaccess - Hostinger Apache Configuration
+# Domain: https://techgroww.co.in
+# ==============================================================================
+
+# Disable directory browsing
+Options -Indexes
+
+# Follow symbolic links
+Options +FollowSymLinks
+
+# Set default character encoding
+AddDefaultCharset UTF-8
+
+# Custom Error Pages
+ErrorDocument 404 /404.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # --------------------------------------------------------------------------
+    # 1. Force HTTPS in Production
+    # --------------------------------------------------------------------------
+    RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP_HOST} ^(www\.)?techgroww\.co\.in$ [NC]
+    RewriteRule ^(.*)$ https://techgroww.co.in/$1 [R=301,L]
+
+    # --------------------------------------------------------------------------
+    # 2. Canonical Domain: Force non-www on techgroww.co.in
+    # --------------------------------------------------------------------------
+    RewriteCond %{HTTP_HOST} ^www\.techgroww\.co\.in$ [NC]
+    RewriteRule ^(.*)$ https://techgroww.co.in/$1 [R=301,L]
+
+    # --------------------------------------------------------------------------
+    # 3. Clean URLs: Service Subpages
+    # --------------------------------------------------------------------------
+    RewriteRule ^services/web-development/?$ services/web-development.php [NC,L]
+    RewriteRule ^services/software-development/?$ services/software-development.php [NC,L]
+    RewriteRule ^services/automation/?$ services/automation.php [NC,L]
+    RewriteRule ^services/ai-solutions/?$ services/ai-solutions.php [NC,L]
+    RewriteRule ^services/digital-marketing/?$ services/digital-marketing.php [NC,L]
+    RewriteRule ^services/it-consulting/?$ services/it-consulting.php [NC,L]
+
+    # --------------------------------------------------------------------------
+    # 4. Clean URLs: Top-Level Pages (Remove .php extension)
+    # --------------------------------------------------------------------------
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.php -f
+    RewriteRule ^([^\.]+)$ $1.php [NC,L]
+</IfModule>
+
+# ==============================================================================
+# 5. Security & Sensitive Directory Isolation
+# Protect database credentials, SQL dumps, and internal files from web scrapers
+# ==============================================================================
+<IfModule mod_authz_core.c>
+    # Block hidden files (.git, .env, etc.)
+    <FilesMatch "^\.">
+        Require all denied
+    </FilesMatch>
+
+    # Block access to SQL, config and internal files
+    <FilesMatch "\.(sql|log|ini|sh|bak|env)$">
+        Require all denied
+    </FilesMatch>
+</IfModule>
+
+# Block access to config, database, and includes folders directly
+RedirectMatch 403 ^/(config|database|includes)/.*$
+
+# ==============================================================================
+# 6. HTTP Security Headers
+# ==============================================================================
+<IfModule mod_headers.c>
+    # Prevent MIME type sniffing
+    Header set X-Content-Type-Options "nosniff"
+
+    # Prevent clickjacking / frame embedding
+    Header set X-Frame-Options "SAMEORIGIN"
+
+    # Enable XSS filtering in legacy browsers
+    Header set X-XSS-Protection "1; mode=block"
+
+    # Referrer policy
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Permissions policy
+    Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# ==============================================================================
+# 7. Gzip / Deflate Compression for Speed Optimization
+# ==============================================================================
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ==============================================================================
+# 8. Browser Caching Headers (Expires / Cache-Control)
+# ==============================================================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+
+    # HTML (no-cache or short expiration for immediate updates)
+    ExpiresByType text/html "access plus 0 seconds"
+
+    # CSS & JavaScript
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+
+    # Images & SVG
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+
+    # Web Fonts
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+</IfModule>
