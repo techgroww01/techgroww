@@ -66,8 +66,9 @@ ErrorDocument 404 /404.php
     </FilesMatch>
 </IfModule>
 
-# Block access to config, database, and includes folders directly
-RedirectMatch 403 ^/(config|database|includes)/.*$
+# Block access to config, database internal files, and includes folders directly
+RedirectMatch 403 ^/(config|includes)/.*$
+RedirectMatch 403 ^/database/(?!migrate\.php).*$
 
 # ==============================================================================
 # 6. HTTP Security Headers
