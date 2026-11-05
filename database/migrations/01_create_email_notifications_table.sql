@@ -26,3 +26,4 @@ CREATE TABLE IF NOT EXISTS `email_notifications` (
   INDEX `idx_type_status` (`email_type`, `status`),
   INDEX `idx_created_at` (`created_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+

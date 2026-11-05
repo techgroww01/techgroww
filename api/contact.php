@@ -175,7 +175,7 @@ try {
     $salesNotifId = MailService::queueNotification(
         $enquiryId,
         SALES_NOTIFICATION_EMAIL,
-        'Techgroww Sales Team',
+        'Techgroww Team',
         'sales_notification',
         $salesSubject,
         $salesHtml,

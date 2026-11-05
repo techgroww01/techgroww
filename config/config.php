@@ -77,11 +77,11 @@ $dbPort = getenv('DB_PORT') ?: '3306';
 $smtpHost               = getenv('SMTP_HOST') ?: 'smtp.gmail.com';
 $smtpPort               = (int) (getenv('SMTP_PORT') ?: 587);
 $smtpEncryption         = getenv('SMTP_ENCRYPTION') ?: 'tls'; // 'tls' for STARTTLS (port 587)
-$smtpUser               = getenv('SMTP_USER') ?: 'sales@techgroww.co.in';
+$smtpUser               = getenv('SMTP_USER') ?: 'contact@techgroww.co.in';
 $smtpPass               = getenv('SMTP_PASS') ?: (getenv('SMTP_PASSWORD') ?: '');
 $mailFromName           = getenv('MAIL_FROM_NAME') ?: 'Techgroww Website';
-$mailFromAddress        = getenv('MAIL_FROM_ADDRESS') ?: 'sales@techgroww.co.in';
-$salesNotificationEmail = getenv('SALES_NOTIFICATION_EMAIL') ?: 'sales@techgroww.co.in';
+$mailFromAddress        = getenv('MAIL_FROM_ADDRESS') ?: 'contact@techgroww.co.in';
+$salesNotificationEmail = getenv('SALES_NOTIFICATION_EMAIL') ?: (getenv('NOTIFICATION_EMAIL') ?: 'contact@techgroww.co.in');
 $cronSecret             = getenv('CRON_SECRET_TOKEN') ?: 'techgroww_cron_e891b2c4d9';
 
 // Check for local uncommitted config file (Hostinger production or local dev)

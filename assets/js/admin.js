@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.85rem;">
                             <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.75rem;">
-                                <div style="font-size: 0.75rem; color: #64748b; text-transform: uppercase; font-weight: 600;">Internal Sales Alert</div>
+                                <div style="font-size: 0.75rem; color: #64748b; text-transform: uppercase; font-weight: 600;">Internal Notification Alert</div>
                                 <div style="margin-top: 4px;">${formatBadge(data.sales_email_status, data.sales_email_error)}</div>
                                 ${data.sales_email_sent_at ? `<div style="font-size: 0.75rem; color: #64748b; margin-top: 4px;">Sent at: ${escapeHtml(data.sales_email_sent_at)}</div>` : ''}
                             </div>

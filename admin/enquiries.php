@@ -71,10 +71,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
                 $enqRow = $enqStmt->fetch(PDO::FETCH_ASSOC);
 
                 if ($enqRow) {
-                    // Queue & deliver sales alert
+                    // Queue & deliver team alert
                     $salesSubject = "New Techgroww Website Enquiry – " . $enqRow['name'];
                     $salesHtml    = MailService::buildSalesNotificationHtml($id, $enqRow);
-                    $sId = MailService::queueNotification($id, SALES_NOTIFICATION_EMAIL, 'Techgroww Sales Team', 'sales_notification', $salesSubject, $salesHtml, $enqRow['email']);
+                    $sId = MailService::queueNotification($id, SALES_NOTIFICATION_EMAIL, 'Techgroww Team', 'sales_notification', $salesSubject, $salesHtml, $enqRow['email']);
                     $retriedCount++;
                     if ($sId && MailService::deliverQueuedEmail($sId)) {
                         $successCount++;
@@ -248,7 +248,7 @@ if ($pdo) {
                     <td>
                         <div style="display:flex; flex-direction:column; gap:4px;">
                             <div style="font-size:0.75rem; display:flex; align-items:center; gap:4px;">
-                                <span style="color:#64748b; font-size:0.7rem;">Sales:</span>
+                                <span style="color:#64748b; font-size:0.7rem;">Alert:</span>
                                 <?= renderEmailBadge($enq['sales_email_status'], $enq['sales_email_error']) ?>
                             </div>
                             <div style="font-size:0.75rem; display:flex; align-items:center; gap:4px;">

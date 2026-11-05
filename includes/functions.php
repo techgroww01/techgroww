@@ -131,7 +131,7 @@ function sendNotificationEmail(string $subject, string $htmlBody, ?string $reply
     if (MailService::isConfigured()) {
         $result = MailService::sendHtmlEmail(
             SALES_NOTIFICATION_EMAIL,
-            'Techgroww Sales',
+            'Techgroww Team',
             $subject,
             $htmlBody,
             $replyTo,

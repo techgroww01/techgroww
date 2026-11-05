@@ -323,7 +323,7 @@ class MailService {
         </div>
         <div class='footer'>
             Submitted on {$submittedAt}<br>
-            Techgroww IT Solutions &bull; https://techgroww.co.in &bull; sales@techgroww.co.in
+            Techgroww IT Solutions &bull; https://techgroww.co.in &bull; contact@techgroww.co.in
         </div>
     </div>
 </body>
@@ -390,7 +390,7 @@ class MailService {
                 </ul>
             </div>
 
-            <p style='margin-top: 24px;'>If you have any urgent details or supplementary documents to share, feel free to reply directly to this email or reach us at <a href='mailto:sales@techgroww.co.in' style='color:#2563eb; font-weight:600;'>sales@techgroww.co.in</a>.</p>
+            <p style='margin-top: 24px;'>If you have any urgent details or supplementary documents to share, feel free to reply directly to this email or reach us at <a href='mailto:contact@techgroww.co.in' style='color:#2563eb; font-weight:600;'>contact@techgroww.co.in</a>.</p>
 
             <p style='margin-bottom: 0;'>Warm regards,<br><strong>Techgroww Consulting Team</strong><br><a href='{$siteUrl}' style='color:#2563eb; text-decoration:none;'>https://techgroww.co.in</a></p>
         </div>
@@ -414,3 +414,4 @@ class MailService {
         return $message;
     }
 }
+
