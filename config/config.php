@@ -83,6 +83,8 @@ $mailFromName           = getenv('MAIL_FROM_NAME') ?: 'Techgroww Website';
 $mailFromAddress        = getenv('MAIL_FROM_ADDRESS') ?: 'contact@techgroww.co.in';
 $salesNotificationEmail = getenv('SALES_NOTIFICATION_EMAIL') ?: (getenv('NOTIFICATION_EMAIL') ?: 'contact@techgroww.co.in');
 $cronSecret             = getenv('CRON_SECRET_TOKEN') ?: 'techgroww_cron_e891b2c4d9';
+$googleVerification     = getenv('GOOGLE_SITE_VERIFICATION') ?: '';
+$bingVerification       = getenv('BING_SITE_VERIFICATION') ?: '';
 
 // Check for local uncommitted config file (Hostinger production or local dev)
 $localConfigFile = __DIR__ . '/config.local.php';
@@ -103,6 +105,8 @@ if (file_exists($localConfigFile)) {
         $mailFromAddress        = $localConfig['MAIL_FROM_ADDRESS'] ?? $mailFromAddress;
         $salesNotificationEmail = $localConfig['SALES_NOTIFICATION_EMAIL'] ?? $salesNotificationEmail;
         $cronSecret             = $localConfig['CRON_SECRET_TOKEN'] ?? $cronSecret;
+        $googleVerification     = $localConfig['GOOGLE_SITE_VERIFICATION'] ?? $googleVerification;
+        $bingVerification       = $localConfig['BING_SITE_VERIFICATION'] ?? $bingVerification;
     }
 }
 
@@ -122,6 +126,8 @@ define('MAIL_FROM_NAME', $mailFromName);
 define('MAIL_FROM_ADDRESS', $mailFromAddress);
 define('SALES_NOTIFICATION_EMAIL', $salesNotificationEmail);
 define('CRON_SECRET_TOKEN', $cronSecret);
+define('GOOGLE_SITE_VERIFICATION', $googleVerification);
+define('BING_SITE_VERIFICATION', $bingVerification);
 
 // Legacy fallback defines for backwards compatibility
 define('MAIL_NOTIFICATIONS_ENABLED', true);

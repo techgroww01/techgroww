@@ -1,0 +1,33 @@
+# Techgroww (Techgroww IT Solutions)
+
+> Transforming Ideas Into Digital Solutions
+
+Techgroww is a premier IT services, custom software engineering, and technology consulting company headquartered in India with engineering centers in Bengaluru and Mumbai.
+
+## Company Overview
+- **Legal Name**: Techgroww IT Solutions
+- **Brand Names**: Techgroww, Tech Groww
+- **Official Domain**: https://techgroww.co.in
+- **Headquarters**: Tech Corridor, Outer Ring Road & HSR Layout, Bengaluru, Karnataka 560102, India
+- **Regional Hub**: Bandra Kurla Complex (BKC), Mumbai, Maharashtra 400051, India
+- **Email**: contact@techgroww.co.in
+- **Phone**: +91 98765 43210
+- **Service Coverage**: Pan-India (Bengaluru, Mumbai, Delhi-NCR, Hyderabad, Pune, Chennai) and Global Remote (US, UK, UAE)
+
+## Core Capabilities & IT Services
+1. **Website Development**: High-performance corporate websites, scalable web applications, and eCommerce portals built on Core PHP 8+, MySQL, and modern frontend standards. https://techgroww.co.in/services/web-development
+2. **Custom Software Development**: Enterprise SaaS applications, bespoke CRM & ERP platforms, and secure RESTful APIs engineered for zero technical debt. https://techgroww.co.in/services/software-development
+3. **Business Process Automation**: Workflow automation pipelines, API-to-API integrations, background daemon synchronization, and automated invoicing. https://techgroww.co.in/services/automation
+4. **AI & Intelligent Solutions**: Custom LLM agents, document extraction pipelines, intelligent customer support assistants, and predictive analytics. https://techgroww.co.in/services/ai-solutions
+5. **Digital Marketing & SEO**: Full-funnel technical search engine optimization, Google Search Console management, conversion rate optimization (CRO), and high-ROI PPC campaigns. https://techgroww.co.in/services/digital-marketing
+6. **IT Consulting & Architecture**: Cloud advisory, microservices architecture, technical debt refactoring, security audits, and digital transformation roadmaps. https://techgroww.co.in/services/it-consulting
+
+## Key Pages & Resources
+- Home: https://techgroww.co.in/
+- About Us: https://techgroww.co.in/about
+- Services Directory: https://techgroww.co.in/services
+- Portfolio Showcase: https://techgroww.co.in/portfolio
+- Contact & Office Hubs: https://techgroww.co.in/contact
+- Privacy Policy: https://techgroww.co.in/privacy-policy
+- Terms of Service: https://techgroww.co.in/terms
+- XML Sitemap: https://techgroww.co.in/sitemap.xml

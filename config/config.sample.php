@@ -31,4 +31,8 @@ return [
 
     // Secret Token for Automated Cron Retry Script
     'CRON_SECRET_TOKEN' => 'techgroww_cron_e891b2c4d9',
+
+    // Search Engine Site Verification (Google Search Console & Bing Webmaster)
+    'GOOGLE_SITE_VERIFICATION' => '', // e.g. paste your GSC token here: google-site-verification=xxxx
+    'BING_SITE_VERIFICATION'   => '',
 ];

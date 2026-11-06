@@ -37,6 +37,24 @@ $flashMessages = getFlashMessages();
     <meta name="geo.position" content="12.9716;77.5946">
     <meta name="ICBM" content="12.9716, 77.5946">
 
+    <!-- Dublin Core Metadata for Authoritative Indexing -->
+    <meta name="DC.title" content="<?= e($pageTitle) ?>">
+    <meta name="DC.creator" content="Techgroww IT Solutions">
+    <meta name="DC.subject" content="IT Services, Software Development, Web Development, Business Automation, AI Solutions, India">
+    <meta name="DC.description" content="<?= e($pageDescription) ?>">
+    <meta name="DC.publisher" content="Techgroww">
+    <meta name="DC.language" content="en-IN">
+    <meta name="DC.coverage" content="India, Bangalore, Mumbai, Delhi-NCR, Hyderabad, Worldwide">
+
+    <?php if (!empty(GOOGLE_SITE_VERIFICATION)): ?>
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="<?= e(GOOGLE_SITE_VERIFICATION) ?>">
+    <?php endif; ?>
+    <?php if (!empty(BING_SITE_VERIFICATION)): ?>
+    <!-- Bing Webmaster Verification -->
+    <meta name="msvalidate.01" content="<?= e(BING_SITE_VERIFICATION) ?>">
+    <?php endif; ?>
+
     <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?= e($canonicalUrl) ?>">
@@ -127,6 +145,42 @@ $flashMessages = getFlashMessages();
         "latitude": 12.9716,
         "longitude": 77.5946
       },
+      "location": [
+        {
+          "@type": "Place",
+          "name": "Techgroww Bangalore Headquarters",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Outer Ring Road & HSR Layout Tech Hub",
+            "addressLocality": "Bangalore",
+            "addressRegion": "Karnataka",
+            "postalCode": "560102",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 12.9121,
+            "longitude": 77.6446
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Techgroww Mumbai Technology Center",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Bandra Kurla Complex (BKC) & Andheri East",
+            "addressLocality": "Mumbai",
+            "addressRegion": "Maharashtra",
+            "postalCode": "400051",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 19.0657,
+            "longitude": 72.8687
+          }
+        }
+      ],
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
@@ -136,6 +190,26 @@ $flashMessages = getFlashMessages();
         }
       ],
       "areaServed": [
+        {
+          "@type": "City",
+          "name": "Bangalore"
+        },
+        {
+          "@type": "City",
+          "name": "Mumbai"
+        },
+        {
+          "@type": "City",
+          "name": "Hyderabad"
+        },
+        {
+          "@type": "City",
+          "name": "Pune"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Delhi NCR"
+        },
         {
           "@type": "Country",
           "name": "India"
