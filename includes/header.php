@@ -8,7 +8,7 @@ require_once __DIR__ . '/functions.php';
 // Fallback metadata defaults
 $pageTitle = $pageTitle ?? APP_NAME . ' | ' . APP_TAGLINE;
 $pageDescription = $pageDescription ?? 'Techgroww is a premier IT solutions & technology consulting firm in India. We build high-performance websites, custom software, business automation pipelines, and enterprise AI solutions.';
-$pageKeywords = $pageKeywords ?? 'Techgroww, Tech Groww, Techgroww IT Solutions, techgroww.co.in, IT services India, web development company, custom software development, business automation, AI solutions, IT consulting Bangalore, software company Mumbai';
+$pageKeywords = $pageKeywords ?? 'Techgroww, Tech Groww, Techgroww IT Solutions, techgroww.co.in, IT services India, web development company Bangalore, software company Mumbai, IT company Noida, custom software Noida, business automation Delhi NCR, AI solutions, IT consulting';
 $canonicalUrl = $canonicalUrl ?? url(ltrim($_SERVER['REQUEST_URI'] ?? '', '/'));
 $ogImage = $ogImage ?? asset('images/og-banner.jpg');
 $currentPage = $currentPage ?? '';
@@ -32,19 +32,19 @@ $flashMessages = getFlashMessages();
     <meta name="theme-color" content="#0B132B">
 
     <!-- Geographic & Regional Targeting (Local & National SEO) -->
-    <meta name="geo.region" content="IN-KA">
-    <meta name="geo.placename" content="Bangalore, Karnataka, India">
+    <meta name="geo.region" content="IN-KA, IN-MH, IN-UP">
+    <meta name="geo.placename" content="Bangalore, Mumbai, Noida, Delhi NCR, India">
     <meta name="geo.position" content="12.9716;77.5946">
     <meta name="ICBM" content="12.9716, 77.5946">
 
     <!-- Dublin Core Metadata for Authoritative Indexing -->
     <meta name="DC.title" content="<?= e($pageTitle) ?>">
     <meta name="DC.creator" content="Techgroww IT Solutions">
-    <meta name="DC.subject" content="IT Services, Software Development, Web Development, Business Automation, AI Solutions, India">
+    <meta name="DC.subject" content="IT Services, Software Development, Web Development, Business Automation, AI Solutions, Noida, Bangalore, Mumbai, India">
     <meta name="DC.description" content="<?= e($pageDescription) ?>">
     <meta name="DC.publisher" content="Techgroww">
     <meta name="DC.language" content="en-IN">
-    <meta name="DC.coverage" content="India, Bangalore, Mumbai, Delhi-NCR, Hyderabad, Worldwide">
+    <meta name="DC.coverage" content="India, Bangalore, Mumbai, Noida, Delhi-NCR, Hyderabad, Worldwide">
 
     <?php if (!empty(GOOGLE_SITE_VERIFICATION)): ?>
     <!-- Google Search Console Verification -->
@@ -179,6 +179,23 @@ $flashMessages = getFlashMessages();
             "latitude": 19.0657,
             "longitude": 72.8687
           }
+        },
+        {
+          "@type": "Place",
+          "name": "Techgroww Noida & Delhi NCR Tech Hub",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Sector 62 & Electronic City Tech Zone",
+            "addressLocality": "Noida",
+            "addressRegion": "Uttar Pradesh",
+            "postalCode": "201309",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 28.6280,
+            "longitude": 77.3649
+          }
         }
       ],
       "openingHoursSpecification": [
@@ -190,6 +207,14 @@ $flashMessages = getFlashMessages();
         }
       ],
       "areaServed": [
+        {
+          "@type": "City",
+          "name": "Noida"
+        },
+        {
+          "@type": "City",
+          "name": "Greater Noida"
+        },
         {
           "@type": "City",
           "name": "Bangalore"
@@ -209,6 +234,10 @@ $flashMessages = getFlashMessages();
         {
           "@type": "AdministrativeArea",
           "name": "Delhi NCR"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Uttar Pradesh"
         },
         {
           "@type": "Country",

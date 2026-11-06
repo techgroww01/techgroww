@@ -2,17 +2,18 @@
 
 > Transforming Ideas Into Digital Solutions
 
-Techgroww is a premier IT services, custom software engineering, and technology consulting company headquartered in India with engineering centers in Bengaluru and Mumbai.
+Techgroww is a premier IT services, custom software engineering, and technology consulting company headquartered in India with engineering centers in Bengaluru, Mumbai, and Noida (Delhi NCR).
 
 ## Company Overview
 - **Legal Name**: Techgroww IT Solutions
 - **Brand Names**: Techgroww, Tech Groww
 - **Official Domain**: https://techgroww.co.in
 - **Headquarters**: Tech Corridor, Outer Ring Road & HSR Layout, Bengaluru, Karnataka 560102, India
-- **Regional Hub**: Bandra Kurla Complex (BKC), Mumbai, Maharashtra 400051, India
+- **Mumbai Hub**: Bandra Kurla Complex (BKC) & Andheri East, Mumbai, Maharashtra 400051, India
+- **Noida & Delhi NCR Hub**: Sector 62 & Electronic City Tech Zone, Noida, Uttar Pradesh 201309, India
 - **Email**: contact@techgroww.co.in
 - **Phone**: +91 98765 43210
-- **Service Coverage**: Pan-India (Bengaluru, Mumbai, Delhi-NCR, Hyderabad, Pune, Chennai) and Global Remote (US, UK, UAE)
+- **Service Coverage**: Pan-India (Bengaluru, Mumbai, Noida, Delhi-NCR, Hyderabad, Pune, Chennai) and Global Remote (US, UK, UAE)
 
 ## Core Capabilities & IT Services
 1. **Website Development**: High-performance corporate websites, scalable web applications, and eCommerce portals built on Core PHP 8+, MySQL, and modern frontend standards. https://techgroww.co.in/services/web-development
@@ -31,3 +32,4 @@ Techgroww is a premier IT services, custom software engineering, and technology 
 - Privacy Policy: https://techgroww.co.in/privacy-policy
 - Terms of Service: https://techgroww.co.in/terms
 - XML Sitemap: https://techgroww.co.in/sitemap.xml
+

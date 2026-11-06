@@ -64,6 +64,24 @@ $contactPageSchema = [
                     'longitude' => 72.8687
                 ],
                 'hasMap' => 'https://www.google.com/maps/search/?api=1&query=Bandra+Kurla+Complex+Mumbai'
+            ],
+            [
+                '@type' => 'Place',
+                'name' => 'Techgroww Noida & Delhi NCR Tech Hub',
+                'address' => [
+                    '@type' => 'PostalAddress',
+                    'streetAddress' => 'Sector 62 & Electronic City Tech Zone',
+                    'addressLocality' => 'Noida',
+                    'addressRegion' => 'Uttar Pradesh',
+                    'postalCode' => '201309',
+                    'addressCountry' => 'IN'
+                ],
+                'geo' => [
+                    '@type' => 'GeoCoordinates',
+                    'latitude' => 28.6280,
+                    'longitude' => 77.3649
+                ],
+                'hasMap' => 'https://www.google.com/maps/search/?api=1&query=Sector+62+Noida+Uttar+Pradesh'
             ]
         ],
         'contactPoint' => [
@@ -169,7 +187,7 @@ require_once __DIR__ . '/includes/header.php';
                         </div>
                         <div class="channel-content">
                             <strong>Registered Hubs</strong>
-                            <span>Bangalore & Mumbai, India</span>
+                            <span>Bengaluru, Mumbai & Noida (Delhi NCR), India</span>
                         </div>
                     </div>
                 </div>
@@ -283,7 +301,7 @@ require_once __DIR__ . '/includes/header.php';
             </p>
         </div>
 
-        <div class="grid-3" style="margin-top: 2rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
             <!-- Hub 1: Bengaluru -->
             <div class="why-choose-card" style="display:flex; flex-direction:column; justify-content:space-between; border-top: 4px solid #2563eb;">
                 <div>
@@ -336,7 +354,33 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
             </div>
 
-            <!-- Hub 3: Pan-India & Global Delivery -->
+            <!-- Hub 3: Noida & Delhi NCR -->
+            <div class="why-choose-card" style="display:flex; flex-direction:column; justify-content:space-between; border-top: 4px solid #ea580c;">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem;">
+                        <span style="display:inline-block; padding: 4px 10px; background:#fff7ed; color:#ea580c; font-size:0.75rem; font-weight:700; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px;">Innovation Hub</span>
+                        <span style="font-size:0.85rem; color:#64748b;">Delhi NCR / UP, India</span>
+                    </div>
+                    <h3 style="font-size:1.35rem; color:#0b132b; margin-bottom:0.75rem;">Noida & Delhi NCR Hub</h3>
+                    <p style="color:#475569; font-size:0.9rem; line-height:1.6; margin-bottom:1rem;">
+                        Our Northern India engineering facility serving high-growth startups, corporate clients, and industrial leaders across the NCR region.
+                    </p>
+                    <div style="font-size:0.85rem; color:#334155; line-height:1.7; margin-bottom:1.25rem;">
+                        <div style="margin-bottom:6px;"><strong>📍 Address:</strong> Sector 62 & Noida Electronic City Tech Zone, Noida, Uttar Pradesh 201309</div>
+                        <div style="margin-bottom:6px;"><strong>📞 Phone:</strong> <a href="tel:<?= e(CONTACT_PHONE_RAW) ?>" style="color:#2563eb; font-weight:600;"><?= e(CONTACT_PHONE) ?></a></div>
+                        <div style="margin-bottom:6px;"><strong>✉️ Email:</strong> <a href="mailto:<?= e(CONTACT_EMAIL) ?>" style="color:#2563eb; font-weight:600;"><?= e(CONTACT_EMAIL) ?></a></div>
+                        <div><strong>🕒 Hours:</strong> Mon - Sat: 9:00 AM - 7:00 PM IST</div>
+                    </div>
+                </div>
+                <div style="border-top:1px solid #e2e8f0; padding-top:1rem; margin-top:0.5rem;">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Sector+62+Noida+Uttar+Pradesh" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm btn-block" style="text-align:center;">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span>View on Google Maps</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hub 4: Pan-India & Global Delivery -->
             <div class="why-choose-card" style="display:flex; flex-direction:column; justify-content:space-between; border-top: 4px solid #059669;">
                 <div>
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem;">

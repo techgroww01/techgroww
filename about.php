@@ -43,7 +43,7 @@ require_once __DIR__ . '/includes/header.php';
                     We partner with startups, growing mid-market enterprises, and established organizations that require more than just basic digital presence. We build dependable software foundations, integrate fragmented enterprise data, and engineer automated systems that free up your team to focus on high-leverage business expansion.
                 </p>
                 <p class="intro-body-text">
-                    Headquartered in India's leading technology hubs, our distributed engineering culture combines technical rigor, continuous learning, and absolute accountability across every line of code we ship.
+                    With dedicated technology hubs across Bengaluru, Mumbai, and Noida (Delhi NCR), our distributed engineering culture combines technical rigor, continuous learning, and absolute accountability across every line of code we ship.
                 </p>
             </div>
 

@@ -56,7 +56,7 @@ define('CONTACT_PHONE', '+91 98765 43210');
 define('CONTACT_PHONE_RAW', '+919876543210');
 define('CONTACT_WHATSAPP', '+919876543210');
 define('OFFICE_HOURS', 'Mon - Sat: 9:00 AM - 7:00 PM IST');
-define('OFFICE_LOCATION', 'Tech Hub, Bangalore & Mumbai, India');
+define('OFFICE_LOCATION', 'Bengaluru, Mumbai & Noida (Delhi NCR), India');
 define('OFFICE_COUNTRY', 'India');
 
 // Social Media Links
