@@ -18,9 +18,9 @@ require_once __DIR__ . '/includes/header.php';
     <div class="container">
         <div class="page-hero-inner">
             <div class="section-eyebrow section-eyebrow-dark">Our Identity & Mission</div>
-            <h1 class="page-hero-title">Empowering Businesses Through Engineering Excellence</h1>
+            <h1 class="page-hero-title">About Techgroww &mdash; Empowering Businesses Through Engineering Excellence</h1>
             <p class="page-hero-sub">
-                Techgroww was established with a singular focus: to help modern enterprises navigate digital complexity through robust software architecture, automated workflows, and practical artificial intelligence.
+                Techgroww (registered as Techgroww IT Solutions, also known as Tech Groww) was established with a singular focus: to help modern enterprises navigate digital complexity through robust software architecture, automated workflows, and practical artificial intelligence.
             </p>
         </div>
     </div>

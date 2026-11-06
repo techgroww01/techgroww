@@ -5,7 +5,8 @@
  */
 
 $pageTitle = 'Techgroww | Transforming Ideas Into Digital Solutions | IT Services India';
-$pageDescription = 'Techgroww is a premier IT solutions & technology consulting firm. We specialize in high-performance web development, custom software engineering, business automation, AI solutions, and digital strategy.';
+$pageDescription = 'Techgroww is a premier IT solutions & technology consulting firm in India. We specialize in custom website development, enterprise software engineering, business process automation, and practical AI solutions.';
+$pageKeywords = 'Techgroww, Tech Groww, Techgroww IT Solutions, techgroww.co.in, IT services India, web development company Bangalore, custom software development Mumbai, business automation, AI consulting, technology company';
 $canonicalUrl = 'https://techgroww.co.in/';
 $currentPage = 'home';
 
@@ -78,6 +79,7 @@ require_once __DIR__ . '/includes/header.php';
                 <span>Next-Generation IT Services & Consulting</span>
             </div>
             <h1 class="hero-title">
+                <span class="hero-brand-highlight" style="display:block; font-size: clamp(1rem, 2.5vw, 1.35rem); font-weight: 700; color: #60a5fa; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Techgroww IT Solutions</span>
                 Transforming Ideas Into <span class="gradient-text">Digital Solutions.</span>
             </h1>
             <p class="hero-subtext">
@@ -189,7 +191,7 @@ require_once __DIR__ . '/includes/header.php';
                     In today's fast-moving business climate, off-the-shelf templates and disconnected systems hold ambitious companies back.
                 </p>
                 <p class="intro-body-text">
-                    Techgroww bridges the gap between vision and execution. As an agile IT company headquartered in India, we engineer custom software architectures, build frictionless workflow automation pipelines, integrate state-of-the-art AI intelligence, and drive sustainable revenue growth through precision digital strategy.
+                    Techgroww (also recognized as Tech Groww IT Solutions) bridges the gap between vision and execution. As an agile technology consulting and digital engineering firm headquartered in India, we architect custom software platforms, build frictionless workflow automation pipelines, integrate state-of-the-art AI intelligence, and drive sustainable business revenue through precision digital strategy.
                 </p>
 
                 <div class="intro-check-list">

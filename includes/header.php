@@ -8,13 +8,14 @@ require_once __DIR__ . '/functions.php';
 // Fallback metadata defaults
 $pageTitle = $pageTitle ?? APP_NAME . ' | ' . APP_TAGLINE;
 $pageDescription = $pageDescription ?? 'Techgroww is a premier IT solutions & technology consulting firm in India. We build high-performance websites, custom software, business automation pipelines, and enterprise AI solutions.';
+$pageKeywords = $pageKeywords ?? 'Techgroww, Tech Groww, Techgroww IT Solutions, techgroww.co.in, IT services India, web development company, custom software development, business automation, AI solutions, IT consulting Bangalore, software company Mumbai';
 $canonicalUrl = $canonicalUrl ?? url(ltrim($_SERVER['REQUEST_URI'] ?? '', '/'));
-$ogImage = $ogImage ?? asset('images/logo.svg');
+$ogImage = $ogImage ?? asset('images/og-banner.jpg');
 $currentPage = $currentPage ?? '';
 $flashMessages = getFlashMessages();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,21 +24,34 @@ $flashMessages = getFlashMessages();
     <!-- Primary SEO Metadata -->
     <title><?= e($pageTitle) ?></title>
     <meta name="description" content="<?= e($pageDescription) ?>">
+    <meta name="keywords" content="<?= e($pageKeywords) ?>">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="<?= e($canonicalUrl) ?>">
     <meta name="author" content="Techgroww IT Solutions">
+    <meta name="publisher" content="Techgroww">
     <meta name="theme-color" content="#0B132B">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Geographic & Regional Targeting (Local & National SEO) -->
+    <meta name="geo.region" content="IN-KA">
+    <meta name="geo.placename" content="Bangalore, Karnataka, India">
+    <meta name="geo.position" content="12.9716;77.5946">
+    <meta name="ICBM" content="12.9716, 77.5946">
+
+    <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?= e($canonicalUrl) ?>">
     <meta property="og:title" content="<?= e($pageTitle) ?>">
     <meta property="og:description" content="<?= e($pageDescription) ?>">
     <meta property="og:image" content="<?= e($ogImage) ?>">
-    <meta property="og:site_name" content="<?= e(APP_NAME) ?>">
+    <meta property="og:image:secure_url" content="<?= e($ogImage) ?>">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Techgroww - Transforming Ideas Into Digital Solutions">
+    <meta property="og:site_name" content="Techgroww">
     <meta property="og:locale" content="en_IN">
 
-    <!-- Twitter Card -->
+    <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@techgroww">
     <meta name="twitter:creator" content="@techgroww">
@@ -45,48 +59,121 @@ $flashMessages = getFlashMessages();
     <meta name="twitter:title" content="<?= e($pageTitle) ?>">
     <meta name="twitter:description" content="<?= e($pageDescription) ?>">
     <meta name="twitter:image" content="<?= e($ogImage) ?>">
+    <meta name="twitter:image:alt" content="Techgroww IT Solutions">
 
     <!-- Favicon & Touch Icons -->
     <link rel="icon" type="image/svg+xml" href="<?= asset('images/favicon.svg') ?>">
-    <link rel="apple-touch-icon" href="<?= asset('images/favicon.svg') ?>">
+    <link rel="apple-touch-icon" href="<?= asset('images/logo-official.jpg') ?>">
 
-    <!-- Typography: Google Fonts Preconnect -->
+    <!-- Typography: Google Fonts Preconnect & Display Swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="<?= asset('css/style.css') ?>?v=1.0.0">
+    <link rel="stylesheet" href="<?= asset('css/style.css') ?>?v=1.1.0">
 
-    <!-- JSON-LD Structured Data: Organization -->
+    <!-- JSON-LD Structured Data: WebSite (Sitelinks Searchbox & Brand Variations) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "WebSite",
+      "@id": "https://techgroww.co.in/#website",
       "name": "Techgroww",
+      "alternateName": ["Tech Groww", "Techgroww IT Solutions", "techgroww.co.in", "Techgroww Technologies"],
+      "url": "https://techgroww.co.in/",
+      "inLanguage": "en-IN",
+      "publisher": {
+        "@id": "https://techgroww.co.in/#organization"
+      }
+    }
+    </script>
+
+    <!-- JSON-LD Structured Data: Organization & ProfessionalService -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["Organization", "ProfessionalService"],
+      "@id": "https://techgroww.co.in/#organization",
+      "name": "Techgroww",
+      "alternateName": ["Tech Groww", "Techgroww IT Solutions", "techgroww.co.in"],
       "legalName": "<?= e(APP_LEGAL_NAME) ?>",
-      "url": "<?= e(SITE_URL) ?>",
-      "logo": "<?= e(asset('images/logo.svg')) ?>",
+      "url": "https://techgroww.co.in",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://techgroww.co.in/#logo",
+        "url": "<?= e(asset('images/logo-official.jpg')) ?>",
+        "caption": "Techgroww Logo",
+        "width": 400,
+        "height": 400
+      },
+      "image": "<?= e(asset('images/og-banner.jpg')) ?>",
       "description": "<?= e($pageDescription) ?>",
       "email": "<?= e(CONTACT_EMAIL) ?>",
       "telephone": "<?= e(CONTACT_PHONE) ?>",
+      "priceRange": "$$",
+      "currenciesAccepted": "INR, USD, EUR, GBP",
+      "paymentAccepted": "Bank Transfer, UPI, Credit Card",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "Tech Hub, Electronic City & HSR Layout",
         "addressLocality": "Bangalore",
         "addressRegion": "Karnataka",
+        "postalCode": "560102",
         "addressCountry": "IN"
       },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 12.9716,
+        "longitude": 77.5946
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "09:00",
+          "closes": "19:00"
+        }
+      ],
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "India"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Worldwide"
+        }
+      ],
+      "knowsAbout": [
+        "Website Development",
+        "Custom Software Engineering",
+        "Business Process Automation",
+        "Artificial Intelligence & Machine Learning",
+        "Digital Marketing & Technical SEO",
+        "IT Architecture & Cloud Strategy"
+      ],
       "sameAs": [
         "<?= e(SOCIAL_LINKEDIN) ?>",
         "<?= e(SOCIAL_TWITTER) ?>",
-        "<?= e(SOCIAL_GITHUB) ?>"
+        "<?= e(SOCIAL_GITHUB) ?>",
+        "<?= e(SOCIAL_INSTAGRAM) ?>"
       ],
       "contactPoint": [
         {
           "@type": "ContactPoint",
           "telephone": "<?= e(CONTACT_PHONE) ?>",
+          "contactType": "sales",
+          "email": "<?= e(CONTACT_EMAIL) ?>",
+          "areaServed": "IN",
+          "availableLanguage": ["English", "Hindi"]
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "<?= e(CONTACT_PHONE) ?>",
           "contactType": "customer service",
           "email": "<?= e(CONTACT_EMAIL) ?>",
+          "areaServed": "IN",
           "availableLanguage": ["English", "Hindi"]
         }
       ]

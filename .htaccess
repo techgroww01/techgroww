@@ -86,6 +86,9 @@ RedirectMatch 403 ^/database/(?!migrate\.php).*$
     # Referrer policy
     Header set Referrer-Policy "strict-origin-when-cross-origin"
 
+    # HTTP Strict Transport Security (HSTS)
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
     # Permissions policy
     Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
 </IfModule>
