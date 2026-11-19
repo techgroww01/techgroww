@@ -20,7 +20,7 @@ $contactPageSchema = [
     '@type' => 'ContactPage',
     'name' => 'Contact Techgroww - Office Locations & Consultation',
     'url' => 'https://techgroww.co.in/contact',
-    'description' => 'Contact Techgroww technology consulting in Bengaluru and Mumbai. Schedule an architectural consultation or request custom software development and business automation quotes.',
+    'description' => 'Contact Techgroww technology consulting in Noida (Delhi NCR), Bengaluru and Mumbai. Schedule an architectural consultation or request custom software development and business automation quotes.',
     'mainEntity' => [
         '@type' => 'Organization',
         'name' => 'Techgroww',
@@ -186,8 +186,8 @@ require_once __DIR__ . '/includes/header.php';
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                         </div>
                         <div class="channel-content">
-                            <strong>Registered Hubs</strong>
-                            <span>Bengaluru, Mumbai & Noida (Delhi NCR), India</span>
+                            <strong>Headquarters & Location</strong>
+                            <span>Noida (Delhi NCR), India</span>
                         </div>
                     </div>
                 </div>
@@ -230,7 +230,7 @@ require_once __DIR__ . '/includes/header.php';
 
                         <div class="form-group">
                             <label class="form-label" for="c_phone">Phone / WhatsApp Number</label>
-                            <input type="tel" id="c_phone" name="phone" class="form-control" placeholder="e.g. +91 98765 43210">
+                            <input type="tel" id="c_phone" name="phone" class="form-control" placeholder="e.g. +91 98143 90048">
                             <div class="form-error-feedback"></div>
                         </div>
 
@@ -302,11 +302,37 @@ require_once __DIR__ . '/includes/header.php';
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
-            <!-- Hub 1: Bengaluru -->
+            <!-- Hub 1: Noida & Delhi NCR (Headquarters) -->
             <div class="why-choose-card" style="display:flex; flex-direction:column; justify-content:space-between; border-top: 4px solid #2563eb;">
                 <div>
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem;">
                         <span style="display:inline-block; padding: 4px 10px; background:#eff6ff; color:#2563eb; font-size:0.75rem; font-weight:700; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px;">Headquarters</span>
+                        <span style="font-size:0.85rem; color:#64748b;">Noida (Delhi NCR), India</span>
+                    </div>
+                    <h3 style="font-size:1.35rem; color:#0b132b; margin-bottom:0.75rem;">Noida Headquarters & Innovation Lab</h3>
+                    <p style="color:#475569; font-size:0.9rem; line-height:1.6; margin-bottom:1rem;">
+                        Our primary corporate headquarters and technology facility serving high-growth startups, corporate clients, and enterprises across Delhi NCR and India.
+                    </p>
+                    <div style="font-size:0.85rem; color:#334155; line-height:1.7; margin-bottom:1.25rem;">
+                        <div style="margin-bottom:6px;"><strong>📍 Address:</strong> Sector 62 & Noida Electronic City Tech Zone, Noida, Uttar Pradesh 201309</div>
+                        <div style="margin-bottom:6px;"><strong>📞 Phone:</strong> <a href="tel:<?= e(CONTACT_PHONE_RAW) ?>" style="color:#2563eb; font-weight:600;"><?= e(CONTACT_PHONE) ?></a></div>
+                        <div style="margin-bottom:6px;"><strong>✉️ Email:</strong> <a href="mailto:<?= e(CONTACT_EMAIL) ?>" style="color:#2563eb; font-weight:600;"><?= e(CONTACT_EMAIL) ?></a></div>
+                        <div><strong>🕒 Hours:</strong> Mon - Sat: 9:00 AM - 7:00 PM IST</div>
+                    </div>
+                </div>
+                <div style="border-top:1px solid #e2e8f0; padding-top:1rem; margin-top:0.5rem;">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Sector+62+Noida+Uttar+Pradesh" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm btn-block" style="text-align:center;">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span>View on Google Maps</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hub 2: Bengaluru -->
+            <div class="why-choose-card" style="display:flex; flex-direction:column; justify-content:space-between; border-top: 4px solid #7c3aed;">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem;">
+                        <span style="display:inline-block; padding: 4px 10px; background:#f5f3ff; color:#7c3aed; font-size:0.75rem; font-weight:700; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px;">Engineering Lab</span>
                         <span style="font-size:0.85rem; color:#64748b;">Karnataka, India</span>
                     </div>
                     <h3 style="font-size:1.35rem; color:#0b132b; margin-bottom:0.75rem;">Bengaluru Engineering Lab</h3>
@@ -328,11 +354,11 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
             </div>
 
-            <!-- Hub 2: Mumbai -->
-            <div class="why-choose-card" style="display:flex; flex-direction:column; justify-content:space-between; border-top: 4px solid #7c3aed;">
+            <!-- Hub 3: Mumbai -->
+            <div class="why-choose-card" style="display:flex; flex-direction:column; justify-content:space-between; border-top: 4px solid #ea580c;">
                 <div>
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem;">
-                        <span style="display:inline-block; padding: 4px 10px; background:#f5f3ff; color:#7c3aed; font-size:0.75rem; font-weight:700; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px;">Technology Center</span>
+                        <span style="display:inline-block; padding: 4px 10px; background:#fff7ed; color:#ea580c; font-size:0.75rem; font-weight:700; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px;">Enterprise Center</span>
                         <span style="font-size:0.85rem; color:#64748b;">Maharashtra, India</span>
                     </div>
                     <h3 style="font-size:1.35rem; color:#0b132b; margin-bottom:0.75rem;">Mumbai Enterprise Center</h3>
@@ -348,32 +374,6 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
                 <div style="border-top:1px solid #e2e8f0; padding-top:1rem; margin-top:0.5rem;">
                     <a href="https://www.google.com/maps/search/?api=1&query=Bandra+Kurla+Complex+Mumbai" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm btn-block" style="text-align:center;">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        <span>View on Google Maps</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Hub 3: Noida & Delhi NCR -->
-            <div class="why-choose-card" style="display:flex; flex-direction:column; justify-content:space-between; border-top: 4px solid #ea580c;">
-                <div>
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem;">
-                        <span style="display:inline-block; padding: 4px 10px; background:#fff7ed; color:#ea580c; font-size:0.75rem; font-weight:700; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px;">Innovation Hub</span>
-                        <span style="font-size:0.85rem; color:#64748b;">Delhi NCR / UP, India</span>
-                    </div>
-                    <h3 style="font-size:1.35rem; color:#0b132b; margin-bottom:0.75rem;">Noida & Delhi NCR Hub</h3>
-                    <p style="color:#475569; font-size:0.9rem; line-height:1.6; margin-bottom:1rem;">
-                        Our Northern India engineering facility serving high-growth startups, corporate clients, and industrial leaders across the NCR region.
-                    </p>
-                    <div style="font-size:0.85rem; color:#334155; line-height:1.7; margin-bottom:1.25rem;">
-                        <div style="margin-bottom:6px;"><strong>📍 Address:</strong> Sector 62 & Noida Electronic City Tech Zone, Noida, Uttar Pradesh 201309</div>
-                        <div style="margin-bottom:6px;"><strong>📞 Phone:</strong> <a href="tel:<?= e(CONTACT_PHONE_RAW) ?>" style="color:#2563eb; font-weight:600;"><?= e(CONTACT_PHONE) ?></a></div>
-                        <div style="margin-bottom:6px;"><strong>✉️ Email:</strong> <a href="mailto:<?= e(CONTACT_EMAIL) ?>" style="color:#2563eb; font-weight:600;"><?= e(CONTACT_EMAIL) ?></a></div>
-                        <div><strong>🕒 Hours:</strong> Mon - Sat: 9:00 AM - 7:00 PM IST</div>
-                    </div>
-                </div>
-                <div style="border-top:1px solid #e2e8f0; padding-top:1rem; margin-top:0.5rem;">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Sector+62+Noida+Uttar+Pradesh" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm btn-block" style="text-align:center;">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                         <span>View on Google Maps</span>
                     </a>

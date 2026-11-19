@@ -115,7 +115,7 @@ if (!$pdo) {
     error_log('[Techgroww Contact Form] Database connection unavailable during contact submission.');
     respond(
         false,
-        'Our database service is temporarily unavailable. Please email us directly at ' . SALES_NOTIFICATION_EMAIL . ' or call ' . CONTACT_PHONE . '.',
+        'Our database service is temporarily unavailable. Please email us directly at ' . CONTACT_EMAIL . ' or call ' . CONTACT_PHONE . '.',
         ['database' => 'Database connection failed'],
         503
     );
@@ -200,7 +200,7 @@ try {
     error_log('[Techgroww Contact Form DB Error] ' . $e->getMessage());
     respond(
         false,
-        'We encountered an error saving your enquiry. Please try submitting again or contact us directly at ' . SALES_NOTIFICATION_EMAIL . '.',
+        'We encountered an error saving your enquiry. Please try submitting again or contact us directly at ' . CONTACT_EMAIL . '.',
         ['database' => 'Failed to save enquiry'],
         500
     );

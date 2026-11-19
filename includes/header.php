@@ -32,19 +32,19 @@ $flashMessages = getFlashMessages();
     <meta name="theme-color" content="#0B132B">
 
     <!-- Geographic & Regional Targeting (Local & National SEO) -->
-    <meta name="geo.region" content="IN-KA, IN-MH, IN-UP">
-    <meta name="geo.placename" content="Bangalore, Mumbai, Noida, Delhi NCR, India">
-    <meta name="geo.position" content="12.9716;77.5946">
-    <meta name="ICBM" content="12.9716, 77.5946">
+    <meta name="geo.region" content="IN-UP, IN-DL, IN-KA, IN-MH">
+    <meta name="geo.placename" content="Noida, Delhi NCR, India">
+    <meta name="geo.position" content="28.6280;77.3649">
+    <meta name="ICBM" content="28.6280, 77.3649">
 
     <!-- Dublin Core Metadata for Authoritative Indexing -->
     <meta name="DC.title" content="<?= e($pageTitle) ?>">
     <meta name="DC.creator" content="Techgroww IT Solutions">
-    <meta name="DC.subject" content="IT Services, Software Development, Web Development, Business Automation, AI Solutions, Noida, Bangalore, Mumbai, India">
+    <meta name="DC.subject" content="IT Services, Software Development, Web Development, Business Automation, AI Solutions, Noida, Delhi NCR, Bangalore, Mumbai, India">
     <meta name="DC.description" content="<?= e($pageDescription) ?>">
     <meta name="DC.publisher" content="Techgroww">
     <meta name="DC.language" content="en-IN">
-    <meta name="DC.coverage" content="India, Bangalore, Mumbai, Noida, Delhi-NCR, Hyderabad, Worldwide">
+    <meta name="DC.coverage" content="Noida, Delhi-NCR, India, Bangalore, Mumbai, Worldwide">
 
     <?php if (!empty(GOOGLE_SITE_VERIFICATION)): ?>
     <!-- Google Search Console Verification -->
@@ -134,16 +134,16 @@ $flashMessages = getFlashMessages();
       "paymentAccepted": "Bank Transfer, UPI, Credit Card",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Tech Hub, Electronic City & HSR Layout",
-        "addressLocality": "Bangalore",
-        "addressRegion": "Karnataka",
-        "postalCode": "560102",
+        "streetAddress": "Sector 62 & Noida Electronic City Tech Zone",
+        "addressLocality": "Noida",
+        "addressRegion": "Uttar Pradesh",
+        "postalCode": "201309",
         "addressCountry": "IN"
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 12.9716,
-        "longitude": 77.5946
+        "latitude": 28.6280,
+        "longitude": 77.3649
       },
       "location": [
         {

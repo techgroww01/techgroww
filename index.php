@@ -982,7 +982,7 @@ require_once __DIR__ . '/includes/header.php';
                         <!-- Phone -->
                         <div class="form-group">
                             <label class="form-label" for="contact_phone">Phone Number</label>
-                            <input type="tel" id="contact_phone" name="phone" class="form-control" placeholder="e.g. +91 98765 43210">
+                            <input type="tel" id="contact_phone" name="phone" class="form-control" placeholder="e.g. +91 98143 90048">
                             <div class="form-error-feedback"></div>
                         </div>
 
