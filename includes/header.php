@@ -89,7 +89,7 @@ $flashMessages = getFlashMessages();
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="<?= asset('css/style.css') ?>?v=1.1.0">
+    <link rel="stylesheet" href="<?= asset('css/style.css') ?>?v=1.2.0">
 
     <!-- JSON-LD Structured Data: WebSite (Sitelinks Searchbox & Brand Variations) -->
     <script type="application/ld+json">
@@ -298,35 +298,12 @@ $flashMessages = getFlashMessages();
     <!-- Accessible Skip Link -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Top Notification & Contact Bar -->
-    <div class="top-bar" aria-label="Top Contact Bar">
-        <div class="container top-bar-inner">
-            <div class="top-bar-left">
-                <span class="top-bar-item">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                    <a href="tel:<?= e(CONTACT_PHONE_RAW) ?>"><?= e(CONTACT_PHONE) ?></a>
-                </span>
-                <span class="top-bar-item">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                    <a href="mailto:<?= e(CONTACT_EMAIL) ?>"><?= e(CONTACT_EMAIL) ?></a>
-                </span>
-            </div>
-            <div class="top-bar-right">
-                <span class="top-bar-badge"><span class="pulse-dot"></span> Next-Gen IT Consulting</span>
-                <a href="https://wa.me/<?= e(CONTACT_WHATSAPP) ?>?text=Hello%20Techgroww,%20I%20am%20interested%20in%20your%20IT%20services" target="_blank" rel="noopener noreferrer" class="top-bar-whatsapp">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
-                    WhatsApp Chat
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Navigation Bar -->
+    <!-- Main Navigation Bar (Clean White Strip with Contact & Actions) -->
     <header class="site-header" id="siteHeader">
         <div class="container header-container">
             <!-- Brand Logo -->
             <a href="<?= url('/') ?>" class="brand-logo" aria-label="Techgroww Home">
-                <img src="<?= asset('images/logo.svg') ?>" alt="Techgroww Logo" width="180" height="42" class="header-logo">
+                <img src="<?= asset('images/logo.svg') ?>" alt="Techgroww Logo" width="190" height="42" class="header-logo">
             </a>
 
             <!-- Desktop Navigation Links -->
@@ -416,8 +393,29 @@ $flashMessages = getFlashMessages();
                 </ul>
             </nav>
 
-            <!-- Header Action Button & Mobile Toggle -->
+            <!-- Header Action Button & Contact Info in White Strip -->
             <div class="header-actions">
+                <div class="header-contact-group">
+                    <a href="tel:<?= e(CONTACT_PHONE_RAW) ?>" class="header-contact-link header-contact-phone" aria-label="Call Techgroww">
+                        <div class="header-contact-icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <div class="header-contact-info">
+                            <span class="header-contact-label">Call Direct</span>
+                            <span class="header-contact-val"><?= e(CONTACT_PHONE) ?></span>
+                        </div>
+                    </a>
+                    <a href="mailto:<?= e(CONTACT_EMAIL) ?>" class="header-contact-link header-contact-email" aria-label="Email Techgroww">
+                        <div class="header-contact-icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </div>
+                        <div class="header-contact-info">
+                            <span class="header-contact-label">Email Us</span>
+                            <span class="header-contact-val"><?= e(CONTACT_EMAIL) ?></span>
+                        </div>
+                    </a>
+                </div>
+
                 <a href="<?= url('/contact#contact-form') ?>" class="btn btn-primary btn-sm header-cta">
                     <span>Get a Quote</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
