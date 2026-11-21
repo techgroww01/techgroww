@@ -64,6 +64,7 @@ define('SOCIAL_LINKEDIN', 'https://www.linkedin.com/company/techgroww');
 define('SOCIAL_TWITTER', 'https://x.com/techgroww');
 define('SOCIAL_GITHUB', 'https://github.com/techgroww01');
 define('SOCIAL_INSTAGRAM', 'https://www.instagram.com/techgroww');
+define('SOCIAL_FACEBOOK', 'https://www.facebook.com/techgroww');
 
 // Database & SMTP Credentials Default Configuration
 // Overridable via environment variables or config/config.local.php

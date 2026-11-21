@@ -900,20 +900,12 @@ input, button, select, textarea {
 }
 
 .hero-grid-lines {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
+  display: none !important;
 }
 
 .hero-inner {
   position: relative;
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  align-items: center;
-  gap: 3.5rem;
+  max-width: 920px;
 }
 
 .hero-badge {
@@ -946,11 +938,11 @@ input, button, select, textarea {
 }
 
 .hero-subtext {
-  font-size: 1.18rem;
-  line-height: 1.7;
+  font-size: 1.22rem;
+  line-height: 1.75;
   color: var(--slate-300);
   margin-bottom: 2.5rem;
-  max-width: 580px;
+  max-width: 760px;
 }
 
 .hero-buttons {
@@ -963,9 +955,10 @@ input, button, select, textarea {
 .hero-metrics-strip {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 2.5rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  max-width: 760px;
 }
 
 .hero-metric-item strong {
@@ -2474,6 +2467,142 @@ textarea.form-control {
   .footer-bottom-inner {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+/* ==========================================================================
+   Floating Social Media & Quick Contact Bar
+   ========================================================================== */
+.floating-social-bar {
+  position: fixed;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 998;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: rgba(11, 19, 43, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 10px 8px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: all var(--transition-fast);
+}
+
+.floating-social-btn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-social-btn:hover {
+  transform: scale(1.15) translateX(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+}
+
+/* Individual Brand Hover States */
+.float-instagram:hover {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  border-color: transparent;
+  box-shadow: 0 8px 24px rgba(214, 36, 159, 0.5);
+}
+
+.float-facebook:hover {
+  background: #1877f2;
+  border-color: #1877f2;
+  box-shadow: 0 8px 24px rgba(24, 119, 242, 0.5);
+}
+
+.float-phone:hover {
+  background: #0284c7;
+  border-color: #0284c7;
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.5);
+}
+
+.float-whatsapp:hover {
+  background: #25d366;
+  border-color: #25d366;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5);
+}
+
+.float-twitter:hover {
+  background: #000000;
+  border-color: #334155;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.float-linkedin:hover {
+  background: #0a66c2;
+  border-color: #0a66c2;
+  box-shadow: 0 8px 24px rgba(10, 102, 194, 0.5);
+}
+
+/* Tooltip on Hover */
+.floating-tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) scale(0.9);
+  background: #0b132b;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+  padding: 5px 11px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-tooltip::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #0b132b;
+}
+
+.floating-social-btn:hover .floating-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+/* Responsive adjustment for Mobile */
+@media (max-width: 768px) {
+  .floating-social-bar {
+    right: 10px;
+    gap: 8px;
+    padding: 8px 6px;
+  }
+  .floating-social-btn {
+    width: 38px;
+    height: 38px;
+  }
+  .floating-social-btn svg {
+    width: 17px;
+    height: 17px;
+  }
+  .floating-tooltip {
+    display: none;
   }
 }
 

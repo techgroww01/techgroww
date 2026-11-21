@@ -95,7 +95,7 @@ $flashMessages = getFlashMessages();
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="<?= asset('css/style.css') ?>?v=1.2.0">
+    <link rel="stylesheet" href="<?= asset('css/style.css') ?>?v=1.3.0">
 
     <!-- JSON-LD Structured Data: WebSite (Sitelinks Searchbox & Brand Variations) -->
     <script type="application/ld+json">

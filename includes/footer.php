@@ -151,6 +151,34 @@
         </div>
     </footer>
 
+    <!-- Floating Social Media & Quick Contact Bar -->
+    <aside class="floating-social-bar" aria-label="Quick Connect & Social Channels">
+        <a href="<?= e(SOCIAL_INSTAGRAM) ?>" target="_blank" rel="noopener noreferrer" class="floating-social-btn float-instagram" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <span class="floating-tooltip">Instagram</span>
+        </a>
+        <a href="<?= e(SOCIAL_FACEBOOK) ?>" target="_blank" rel="noopener noreferrer" class="floating-social-btn float-facebook" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <span class="floating-tooltip">Facebook</span>
+        </a>
+        <a href="tel:<?= e(CONTACT_PHONE_RAW) ?>" class="floating-social-btn float-phone" aria-label="Direct Phone">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span class="floating-tooltip">Call Us</span>
+        </a>
+        <a href="https://wa.me/<?= e(CONTACT_WHATSAPP) ?>?text=Hello%20Techgroww,%20I%20would%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer" class="floating-social-btn float-whatsapp" aria-label="WhatsApp">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+            <span class="floating-tooltip">WhatsApp</span>
+        </a>
+        <a href="<?= e(SOCIAL_TWITTER) ?>" target="_blank" rel="noopener noreferrer" class="floating-social-btn float-twitter" aria-label="X (Twitter)">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <span class="floating-tooltip">X (Twitter)</span>
+        </a>
+        <a href="<?= e(SOCIAL_LINKEDIN) ?>" target="_blank" rel="noopener noreferrer" class="floating-social-btn float-linkedin" aria-label="LinkedIn">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            <span class="floating-tooltip">LinkedIn</span>
+        </a>
+    </aside>
+
     <!-- Back to Top Floating Button -->
     <button type="button" class="back-to-top" id="backToTopBtn" aria-label="Scroll back to top">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
