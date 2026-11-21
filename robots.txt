@@ -18,7 +18,7 @@ Disallow: /api/
 Disallow: /cron/
 
 # Canonical Host
-Host: https://techgroww.co.in
+Host: techgroww.co.in
 
 # Sitemap location
 Sitemap: https://techgroww.co.in/sitemap.xml

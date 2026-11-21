@@ -79,9 +79,15 @@ $flashMessages = getFlashMessages();
     <meta name="twitter:image" content="<?= e($ogImage) ?>">
     <meta name="twitter:image:alt" content="Techgroww IT Solutions">
 
-    <!-- Favicon & Touch Icons -->
+    <!-- Favicon & Search Engine Icons -->
+    <link rel="shortcut icon" href="<?= url('favicon.ico') ?>" type="image/x-icon">
+    <link rel="icon" href="<?= url('favicon.ico') ?>" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= asset('images/favicon-32x32.png') ?>">
+    <link rel="icon" type="image/png" sizes="48x48" href="<?= asset('images/favicon-48x48.png') ?>">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?= asset('images/favicon-96x96.png') ?>">
+    <link rel="icon" type="image/png" sizes="192x192" href="<?= asset('images/favicon-192x192.png') ?>">
     <link rel="icon" type="image/svg+xml" href="<?= asset('images/favicon.svg') ?>">
-    <link rel="apple-touch-icon" href="<?= asset('images/logo-official.jpg') ?>">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= asset('images/apple-touch-icon.png') ?>">
 
     <!-- Typography: Google Fonts Preconnect & Display Swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
